@@ -1,6 +1,6 @@
-# Reproducing Random Numbers in Matlab and Python / NumPy
+## Reproducing Random Numbers in Matlab and Python / NumPy
 
-## Uniform Distribution (rand)
+### Uniform Distribution (rand)
 
 Current versions of Matlab and NumPy use the same random number generator. Thus, it is easy to create the same samples from a uniform distribution.
 
@@ -21,7 +21,7 @@ print(samples)
 # Output: [ 0.20846054  0.48168106  0.42053804  0.859182    0.17116155  0.33886396  0.27053283  0.69104135  0.22040452  0.81195092 ]
 ```
 
-# Standard Normal Distribution (randn)
+### Standard Normal Distribution (randn)
 
 *tbd*
 
