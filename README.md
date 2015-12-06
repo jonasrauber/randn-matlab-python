@@ -1,5 +1,10 @@
 ## Reproducing Random Numbers in Matlab and Python / NumPy
 
+**TLDR:**
+
+* rand: works the same in Matlab and Python / NumPy
+* randn: use randn2.m and randn2.py provided in this repository to create the same samples in Matlab and Python
+
 ### Uniform Distribution (rand)
 
 Current versions of Matlab and NumPy use the same random number generator. Thus, it is easy to create the same samples from a uniform distribution.
@@ -43,6 +48,25 @@ np.random.seed(22)
 samples = np.random.rand(5)
 # transform from uniform to standard normal distribution using inverse cdf
 samples = np.sqrt(2) * erfinv(2 * samples - 1)
+print(samples)
+# Output: [-0.81177443 -0.04593492 -0.20051725  1.07665147 -0.94958511]
+```
+
+For convenience, this repository provides two files, randn2.m and randn2.py, which can be used as a drop-in replacement for randn.
+
+**Matlab**:
+```matlab
+rng(22); % seed
+samples = randn2(1, 5);
+disp(samples);
+% Output: -0.8118   -0.0459   -0.2005    1.0767   -0.9496
+```
+
+**Python / NumPy**:
+```python
+import numpy as np
+np.random.seed(22)
+samples = np.random.randn2(5)
 print(samples)
 # Output: [-0.81177443 -0.04593492 -0.20051725  1.07665147 -0.94958511]
 ```
