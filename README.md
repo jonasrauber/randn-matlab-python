@@ -28,10 +28,11 @@ Unfortunately, Matlab and NumPy use different transformations to create samples 
 **Matlab**:
 ```matlab
 rng(22); % seed
-samples = rand(1,10);
+samples = rand(1, 5);
+% transform from uniform to standard normal distribution using inverse cdf
 samples = sqrt(2) * erfinv(2 * samples - 1);
 disp(samples);
-% Output: tbd
+% Output: -0.8118   -0.0459   -0.2005    1.0767   -0.9496
 ```
 
 **Python / NumPy**:
@@ -39,10 +40,11 @@ disp(samples);
 import numpy as np
 from scipy.special import erfinv
 np.random.seed(22)
-samples = np.random.rand(10)
+samples = np.random.rand(5)
+# transform from uniform to standard normal distribution using inverse cdf
 samples = np.sqrt(2) * erfinv(2 * samples - 1)
 print(samples)
-# Output: [ 0.20846054  0.48168106  0.42053804  0.859182    0.17116155  0.33886396  0.27053283  0.69104135  0.22040452  0.81195092 ]
+# Output: [-0.81177443 -0.04593492 -0.20051725  1.07665147 -0.94958511]
 ```
 
 ---
@@ -61,7 +63,7 @@ disp(samples);
 ```python
 import numpy as np
 np.random.seed(22)
-samples = np.random.randn(10)
+samples = np.random.randn(5)
 print(samples)
 # Output: [-0.09194992 -1.46335065  1.08179168 -0.23932517 -0.49112914]
 ```
